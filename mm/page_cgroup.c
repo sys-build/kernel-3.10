@@ -68,6 +68,7 @@ void __init page_cgroup_init_flatmem(void)
 
 	int nid, fail;
 
+	pr_notice("zzytest, page_cgroup_init_flatmem begin, mm/page_cgroup.c\n");
 	if (mem_cgroup_disabled())
 		return;
 
@@ -272,6 +273,7 @@ void __init page_cgroup_init(void)
 	unsigned long pfn;
 	int nid;
 
+	pr_notice("zzytest, page_cgroup_init begin, mm/page_cgroup.c\n");
 	if (mem_cgroup_disabled())
 		return;
 

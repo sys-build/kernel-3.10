@@ -60,6 +60,7 @@ static inline void kmemleak_erase(void **ptr)
 
 static inline void kmemleak_init(void)
 {
+	pr_notice("zzytest, kmemleak_init begin, empty, include/linux/kmemleak.h\n");
 }
 static inline void kmemleak_alloc(const void *ptr, size_t size, int min_count,
 				  gfp_t gfp)

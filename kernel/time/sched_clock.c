@@ -198,6 +198,7 @@ void __init sched_clock_postinit(void)
 	 * If no sched_clock function has been provided at that point,
 	 * make it the final one one.
 	 */
+	pr_notice("zzytest, sched_clock_postinit begin, kernel/time/sched_clock.c\n");
 	if (read_sched_clock == jiffy_sched_clock_read)
 		sched_clock_register(jiffy_sched_clock_read, BITS_PER_LONG, HZ);
 

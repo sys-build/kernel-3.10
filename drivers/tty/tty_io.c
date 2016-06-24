@@ -3480,6 +3480,7 @@ void __init console_init(void)
 {
 	initcall_t *call;
 
+	pr_notice("zzytest, console_init begin, drivers/tty/tty_io.c\n");
 	/* Setup the default TTY line discipline. */
 	tty_ldisc_begin();
 

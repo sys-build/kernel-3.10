@@ -648,6 +648,7 @@ u8 acpi_gbl_permanent_mmap;
 
 void __init acpi_early_init(void)
 {
+	pr_notice("zzytest, acpi_early_init begin, drivers/acpi/bus.c\n");
 	acpi_status status = AE_OK;
 
 	if (acpi_disabled)

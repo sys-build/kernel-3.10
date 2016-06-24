@@ -4023,6 +4023,7 @@ void lockdep_init(void)
 	 * call lockdep_init() from the start_kernel() itself,
 	 * and we want to initialize the hashes only once:
 	 */
+	pr_notice("zzytest, lockdep_init begin, kernel/lockdep.c\n");
 	if (lockdep_initialized)
 		return;
 
@@ -4037,6 +4038,7 @@ void lockdep_init(void)
 
 void __init lockdep_info(void)
 {
+	pr_notice("zzytest, lockdep_info begin, kernel/lockdep.c\n");
 	printk("Lock dependency validator: Copyright (c) 2006 Red Hat, Inc., Ingo Molnar\n");
 
 	printk("... MAX_LOCKDEP_SUBCLASSES:  %lu\n", MAX_LOCKDEP_SUBCLASSES);

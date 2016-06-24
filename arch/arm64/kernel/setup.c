@@ -116,6 +116,7 @@ void __init smp_setup_processor_id(void)
 	 * using percpu variable early, for example, lockdep will
 	 * access percpu variable inside lock_release
 	 */
+	pr_notice("zzytest, smp_setup_process_id begin, arch/arm64/kernel/setup.c\n");
 	set_my_cpu_offset(0);
 }
 
@@ -140,6 +141,7 @@ static void __init smp_build_mpidr_hash(void)
 	 * Pre-scan the list of MPIDRS and filter out bits that do
 	 * not contribute to affinity levels, ie they never toggle.
 	 */
+	pr_notice("zzytest, smp_build_mpidr_hash begin, arch/arm64/kernel/setup.c\n");
 	for_each_possible_cpu(i)
 		mask |= (cpu_logical_map(i) ^ cpu_logical_map(0));
 	pr_debug("mask of set bits %#llx\n", mask);
@@ -198,6 +200,7 @@ static void __init setup_processor(void)
 	struct cpu_info *cpu_info;
 	u64 features, block;
 
+	pr_notice("zzytest, setup_processor begin, arch/arm64/kernel/setup.c\n");
 	cpu_info = lookup_processor_type(read_cpuid_id());
 	if (!cpu_info) {
 		printk("CPU configuration botched (ID %08x), unable to continue.\n",
@@ -250,6 +253,7 @@ static void __init setup_machine_fdt(phys_addr_t dt_phys)
 	struct boot_param_header *devtree;
 	unsigned long dt_root;
 
+	pr_notice("zzytest, setup_machine_fdt begin, arch/arm64/kernel/setup.c\n");
 	/* Check we have a non-NULL DT pointer */
 	if (!dt_phys) {
 		early_print("\n"
@@ -342,6 +346,7 @@ static void __init request_standard_resources(void)
 	struct memblock_region *region;
 	struct resource *res;
 
+	pr_notice("zzytest, request_standard_resources begin, arch/arm64/kernel/setup.c\n");
 	kernel_code.start   = virt_to_phys(_text);
 	kernel_code.end     = virt_to_phys(_etext - 1);
 	kernel_data.start   = virt_to_phys(_sdata);
@@ -369,6 +374,7 @@ u64 __cpu_logical_map[NR_CPUS] = { [0 ... NR_CPUS-1] = INVALID_HWID };
 
 void __init setup_arch(char **cmdline_p)
 {
+	pr_notice("zzytest, setup_arch begin, arch/arm64/kernel/setup.c\n");
 	setup_processor();
 
 	setup_machine_fdt(__fdt_pointer);

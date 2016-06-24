@@ -82,6 +82,7 @@ void __init call_function_init(void)
 	void *cpu = (void *)(long)smp_processor_id();
 	int i;
 
+	pr_notice("zzytest, call_function_init begin, kernel/smp.c\n");
 	for_each_possible_cpu(i) {
 		struct call_single_queue *q = &per_cpu(call_single_queue, i);
 
@@ -577,6 +578,7 @@ EXPORT_SYMBOL(nr_cpu_ids);
 /* An arch may set nr_cpu_ids earlier if needed, so this would be redundant */
 void __init setup_nr_cpu_ids(void)
 {
+	pr_notice("zzytest, setup_nr_cpu_ids begin, kernel/smp.c\n");
 	nr_cpu_ids = find_last_bit(cpumask_bits(cpu_possible_mask),NR_CPUS) + 1;
 }
 

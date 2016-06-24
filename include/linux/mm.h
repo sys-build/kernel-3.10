@@ -788,7 +788,7 @@ static inline void set_page_address(struct page *page, void *address)
 {
 	page->virtual = address;
 }
-#define page_address_init()  do { } while(0)
+#define page_address_init()  do {pr_notice("zzytest, page_address_init begin, empty, include/linux/mm.h\n"); } while(0)
 #endif
 
 #if defined(HASHED_PAGE_VIRTUAL)

@@ -413,5 +413,6 @@ void tick_notify(unsigned long reason, void *dev)
  */
 void __init tick_init(void)
 {
+	pr_notice("zzytest, tick_init begin, kernel/time/tick-common.c\n");
 	tick_broadcast_init();
 }

@@ -63,6 +63,7 @@ static void __init do_security_initcalls(void)
  */
 int __init security_init(void)
 {
+	pr_notice("zzytest, security_init begin, security/security.c\n");
 	printk(KERN_INFO "Security Framework initialized\n");
 
 	security_fixup_ops(&default_security_ops);

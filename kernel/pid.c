@@ -572,6 +572,7 @@ void __init pidhash_init(void)
 {
 	unsigned int i, pidhash_size;
 
+	pr_notice("zzytest, pidhash_init begin, kernel/pid.c\n");
 	pid_hash = alloc_large_system_hash("PID", sizeof(*pid_hash), 0, 18,
 					   HASH_EARLY | HASH_SMALL,
 					   &pidhash_shift, NULL,
@@ -584,6 +585,7 @@ void __init pidhash_init(void)
 
 void __init pidmap_init(void)
 {
+	pr_notice("zzytest, pidmap_init begin, kernel/pid.c\n");
 	/* Veryify no one has done anything silly */
 	BUILD_BUG_ON(PID_MAX_LIMIT >= PIDNS_HASH_ADDING);
 

@@ -191,6 +191,7 @@ void __init jump_label_init(void)
 	struct static_key *key = NULL;
 	struct jump_entry *iter;
 
+	pr_notice("zzytest, jump_label_init begin, kernel/jump_label.c\n");
 	jump_label_lock();
 	jump_label_sort_entries(iter_start, iter_stop);
 

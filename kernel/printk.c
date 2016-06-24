@@ -838,6 +838,7 @@ void __init setup_log_buf(int early)
 	char *new_log_buf;
 	int free;
 
+	pr_notice("zzytest, setup_log_buf begin, kernel/printk.c\n");
 	if (!new_log_buf_len)
 		return;
 

@@ -1424,6 +1424,7 @@ static void init_cgroup_root(struct cgroupfs_root *root)
 {
 	struct cgroup *cgrp = &root->top_cgroup;
 
+	pr_notice("zzytest, init_cgroup_root begin, kernel/cgroup.c\n");
 	INIT_LIST_HEAD(&root->subsys_list);
 	INIT_LIST_HEAD(&root->root_list);
 	INIT_LIST_HEAD(&root->allcg_list);
@@ -4647,6 +4648,7 @@ EXPORT_SYMBOL_GPL(cgroup_unload_subsys);
 int __init cgroup_init_early(void)
 {
 	int i;
+	pr_notice("zzytest, cgroup_init_early begin, kernel/cgroup.c\n");
 	atomic_set(&init_css_set.refcount, 1);
 	INIT_LIST_HEAD(&init_css_set.cg_links);
 	INIT_LIST_HEAD(&init_css_set.tasks);
@@ -4698,6 +4700,7 @@ int __init cgroup_init(void)
 	int i;
 	unsigned long key;
 
+	pr_notice("zzytest, cgroup_init begin, kernel/cgroup.c\n");
 	err = bdi_init(&cgroup_backing_dev_info);
 	if (err)
 		return err;

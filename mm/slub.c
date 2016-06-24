@@ -3733,6 +3733,7 @@ void __init kmem_cache_init(void)
 	static __initdata struct kmem_cache boot_kmem_cache,
 		boot_kmem_cache_node;
 
+	pr_notice("zzytest, kmem_cache_init begin, mm/slub.c\n");
 	if (debug_guardpage_minorder())
 		slub_max_order = 0;
 
@@ -3778,6 +3779,7 @@ void __init kmem_cache_init(void)
 
 void __init kmem_cache_init_late(void)
 {
+	pr_notice("zzytest, kmem_cache_init_late begin, mm/slub.c\n");
 }
 
 /*

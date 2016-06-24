@@ -1618,6 +1618,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
 	size_t size_sum, areas_size, max_distance;
 	int group, i, rc;
 
+	pr_notice("zzytest, pcpu_embed_first_chunk begin, mm/percpu.c\n");
 	ai = pcpu_build_alloc_info(reserved_size, dyn_size, atom_size,
 				   cpu_distance_fn);
 	if (IS_ERR(ai))
@@ -1865,6 +1866,7 @@ void __init setup_per_cpu_areas(void)
 	 * Always reserve area for module percpu variables.  That's
 	 * what the legacy allocator did.
 	 */
+	pr_notice("zzytest, setup_per_cpu_areas begin, mm/percpu.c\n");
 	rc = pcpu_embed_first_chunk(PERCPU_MODULE_RESERVE,
 				    PERCPU_DYNAMIC_RESERVE, PAGE_SIZE, NULL,
 				    pcpu_dfl_fc_alloc, pcpu_dfl_fc_free);
@@ -1928,6 +1930,7 @@ void __init percpu_init_late(void)
 	unsigned long flags;
 	int i;
 
+	pr_notice("zzytest, percpu_init_late begin, mm/percpu.c\n");
 	for (i = 0; (chunk = target_chunks[i]); i++) {
 		int *map;
 		const size_t size = PERCPU_DYNAMIC_EARLY_SLOTS * sizeof(map[0]);

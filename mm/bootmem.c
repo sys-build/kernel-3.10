@@ -700,6 +700,7 @@ void * __init __alloc_bootmem(unsigned long size, unsigned long align,
 {
 	unsigned long limit = 0;
 
+	pr_notice("zzytest, __alloc_bootmem begin, mm/bootmem.c\n");
 	return ___alloc_bootmem(size, align, goal, limit);
 }
 

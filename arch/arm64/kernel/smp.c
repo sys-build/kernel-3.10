@@ -348,6 +348,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
 
 void __init smp_prepare_boot_cpu(void)
 {
+	pr_notice("zzytest, smp_prepare_boot_cpu begin, arch/arm64/kernel/smp.c\n");
 	set_my_cpu_offset(per_cpu_offset(smp_processor_id()));
 }
 
@@ -362,6 +363,7 @@ void __init smp_init_cpus(void)
 	unsigned int i, cpu = 1;
 	bool bootcpu_valid = false;
 
+	pr_notice("zzytest, smp_init_cpus begin, arch/arm64/kernel/smp.c\n");
 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
 		const u32 *cell;
 		u64 hwid;

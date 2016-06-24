@@ -103,6 +103,8 @@ __setup("profile=", profile_setup);
 int __ref profile_init(void)
 {
 	int buffer_bytes;
+
+	pr_notice("zzytest, profile_init begin, kernel/profile.c\n");
 	if (!prof_on)
 		return 0;
 

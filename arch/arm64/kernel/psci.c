@@ -348,6 +348,7 @@ int __init psci_init(void)
 	const struct of_device_id *matched_np;
 	psci_initcall_t init_fn;
 
+	pr_notice("zzytest, psci_init begin, arch/arm64/kernel/psci.c\n");
 	np = of_find_matching_node_and_match(NULL, psci_of_match, &matched_np);
 
 	if (!np)

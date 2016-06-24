@@ -350,6 +350,7 @@ static inline void smp_prepare_cpus(unsigned int maxcpus) { }
  */
 static void __init setup_command_line(char *command_line)
 {
+	pr_notice("zzytest, setup_command_line begin, using alloc_bootmem, init/main.c\n");
 	saved_command_line = alloc_bootmem(strlen (boot_command_line)+1);
 	static_command_line = alloc_bootmem(strlen (command_line)+1);
 	strcpy (saved_command_line, boot_command_line);
@@ -363,6 +364,7 @@ static void __init hash_sn(void)
    unsigned int td_sf = 0;
    size_t cmdline_len, sf_len;
 
+	pr_notice("zzytest, hash_sn begin, init/main.c\n");
    cmdline_len = strlen(saved_command_line);
    sf_len = strlen("td.sf=");
 
@@ -414,6 +416,7 @@ static noinline void __init_refok rest_init(void)
 {
 	int pid;
 
+	pr_notice("zzytest, reset_init begin, init/main.c\n");
 	rcu_scheduler_starting();
 	/*
 	 * We need to spawn init first so that it obtains pid 1, however
@@ -467,6 +470,7 @@ void __init parse_early_param(void)
 	static __initdata int done = 0;
 	static __initdata char tmp_cmdline[COMMAND_LINE_SIZE];
 
+	pr_notice("zzytest, parse_early_param begin, init/main.c\n");
 	if (done)
 		return;
 
@@ -484,6 +488,7 @@ static void __init boot_cpu_init(void)
 {
 	int cpu = smp_processor_id();
 	/* Mark the boot cpu "present", "online" etc for SMP and UP case */
+	pr_notice("zzytest, boot_cpu_init begin, init/main.c\n");
 	set_cpu_online(cpu, true);
 	set_cpu_active(cpu, true);
 	set_cpu_present(cpu, true);
@@ -497,6 +502,7 @@ void __init __weak smp_setup_processor_id(void)
 # if THREAD_SIZE >= PAGE_SIZE
 void __init __weak thread_info_cache_init(void)
 {
+	pr_notice("zzytest, thread_info_cache_init begin, empty, init/main.c\n");
 }
 #endif
 
@@ -509,6 +515,7 @@ static void __init mm_init(void)
 	 * page_cgroup requires contiguous pages,
 	 * bigger than MAX_ORDER unless SPARSEMEM.
 	 */
+	pr_notice("zzytset, mm_init begin, init/main.c\n");
 	page_cgroup_init_flatmem();
 	mem_init();
 	kmem_cache_init();
@@ -526,6 +533,7 @@ asmlinkage void __init start_kernel(void)
 	 * Need to run as early as possible, to initialize the
 	 * lockdep hash:
 	 */
+	pr_notice("zzytest, start_kernel being, init/main.c\n");
 	lockdep_init();
 	smp_setup_processor_id();
 	debug_objects_early_init();
@@ -546,7 +554,7 @@ asmlinkage void __init start_kernel(void)
  */
 	boot_cpu_init();
 	page_address_init();
-	pr_notice("%s", linux_banner);
+	pr_notice("zzytest: %s", linux_banner);
 	setup_arch(&command_line);
 	mm_init_owner(&init_mm, &init_task);
 	mm_init_cpumask(&init_mm);
@@ -633,6 +641,7 @@ asmlinkage void __init start_kernel(void)
 	locking_selftest();
 
 #ifdef CONFIG_BLK_DEV_INITRD
+	pr_notice("zzytest, CONFIG_BLK_DEV_INITRD defined\n");
 	if (initrd_start && !initrd_below_start_ok &&
 	    page_to_pfn(virt_to_page((void *)initrd_start)) < min_low_pfn) {
 		pr_crit("initrd overwritten (0x%08lx < 0x%08lx) - disabling it.\n",

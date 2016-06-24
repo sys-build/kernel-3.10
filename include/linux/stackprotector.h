@@ -10,6 +10,7 @@
 #else
 static inline void boot_init_stack_canary(void)
 {
+	pr_notice("zzytest, boot_init_stack_canary begin, empty, include/linux/stackprotector.h\n");
 }
 #endif
 

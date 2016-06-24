@@ -90,6 +90,7 @@ struct pt_regs;
 
 static inline int profile_init(void)
 {
+	pr_notice("zzytest, profile_init begin, empty, include/linux/profile.h\n");
 	return 0;
 }
 

@@ -7641,7 +7641,8 @@ perf_cpu_notify(struct notifier_block *self, unsigned long action, void *hcpu)
 void __init perf_event_init(void)
 {
 	int ret;
-
+	
+	pr_notice("zzytest, perf_event_init begin, kernel/events/core.c\n");
 	idr_init(&pmu_idr);
 
 	perf_event_init_all_cpus();

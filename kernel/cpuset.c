@@ -1986,6 +1986,7 @@ int __init cpuset_init(void)
 {
 	int err = 0;
 
+	pr_notice("zzytest, cpuset_init begin, kernel/cpuset.c\n");
 	if (!alloc_cpumask_var(&top_cpuset.cpus_allowed, GFP_KERNEL))
 		BUG();
 

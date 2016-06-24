@@ -3024,6 +3024,7 @@ static void __init dcache_init_early(void)
 {
 	unsigned int loop;
 
+	pr_notice("zzytest, dcache_init_early begin, fs/dcache.c\n");
 	/* If hashes are distributed across NUMA nodes, defer
 	 * hash allocation until vmalloc space is available.
 	 */
@@ -3084,6 +3085,7 @@ EXPORT_SYMBOL(d_genocide);
 
 void __init vfs_caches_init_early(void)
 {
+	pr_notice("zzytest, vfs_caches_init_early begin, fs/dcache.c\n");
 	dcache_init_early();
 	inode_init_early();
 }
@@ -3095,6 +3097,7 @@ void __init vfs_caches_init(unsigned long mempages)
 	/* Base hash sizes on available memory, with a reserve equal to
            150% of current kernel size */
 
+	pr_notice("zzytest, vfs_caches_init begin, fs/dcache.c\n");
 	reserve = min((mempages - nr_free_pages()) * 3/2, mempages - 1);
 	mempages -= reserve;
 

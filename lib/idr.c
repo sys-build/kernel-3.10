@@ -851,6 +851,7 @@ EXPORT_SYMBOL(idr_replace);
 
 void __init idr_init_cache(void)
 {
+	pr_notice("zzytest, idr_init_cache begin, lib/idr.c\n");
 	idr_layer_cache = kmem_cache_create("idr_layer_cache",
 				sizeof(struct idr_layer), 0, SLAB_PANIC, NULL);
 }
@@ -864,6 +865,7 @@ void __init idr_init_cache(void)
  */
 void idr_init(struct idr *idp)
 {
+	pr_notice("zzytest, idr_init begin, lib/idr.c\n");
 	memset(idp, 0, sizeof(struct idr));
 	spin_lock_init(&idp->lock);
 }

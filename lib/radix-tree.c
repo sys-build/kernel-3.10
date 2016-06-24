@@ -1446,6 +1446,7 @@ static int radix_tree_callback(struct notifier_block *nfb,
 
 void __init radix_tree_init(void)
 {
+	pr_notice("zzytest, radix_tree_init begin, lib/radix-tree.c\n");
 	radix_tree_node_cachep = kmem_cache_create("radix_tree_node",
 			sizeof(struct radix_tree_node), 0,
 			SLAB_PANIC | SLAB_RECLAIM_ACCOUNT,

@@ -3522,6 +3522,7 @@ void __init buffer_init(void)
 {
 	unsigned long nrpages;
 
+	pr_notice("zzytest, buffer_init begin, fs/buffer.c\n");
 	bh_cachep = kmem_cache_create("buffer_head",
 			sizeof(struct buffer_head), 0,
 				(SLAB_RECLAIM_ACCOUNT|SLAB_PANIC|

@@ -685,6 +685,7 @@ void __init taskstats_init_early(void)
 {
 	unsigned int i;
 
+	pr_notice("zzytest, taskstats_init_early begin, kernel/taskstats.c\n");
 	taskstats_cache = KMEM_CACHE(taskstats, SLAB_PANIC);
 	for_each_possible_cpu(i) {
 		INIT_LIST_HEAD(&(per_cpu(listener_array, i).list));

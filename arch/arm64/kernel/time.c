@@ -71,6 +71,7 @@ void __init time_init(void)
 {
 	u32 arch_timer_rate;
 
+	pr_notice("zzytest, time_init begin, arch/arm64/kernel/time.c\n");
 	clocksource_of_init();
 
 	arch_timer_rate = arch_timer_get_rate();

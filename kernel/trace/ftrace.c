@@ -4260,6 +4260,7 @@ void __init ftrace_init(void)
 	unsigned long count, flags;
 	int ret;
 
+	pr_notice("zzytest, ftrace_init begin, kernel/trace/ftrace.c\n");
 	local_irq_save(flags);
 	ret = ftrace_dyn_arch_init();
 	local_irq_restore(flags);

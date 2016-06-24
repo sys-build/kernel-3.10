@@ -3323,6 +3323,7 @@ void __init rcu_init(void)
 {
 	int cpu;
 
+	pr_notice("zzytest, rcu_init begin, kernel/rcutree.c\n");
 	rcu_bootup_announce();
 	rcu_init_geometry();
 	rcu_init_one(&rcu_sched_state, &rcu_sched_data);

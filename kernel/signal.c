@@ -3641,6 +3641,7 @@ __attribute__((weak)) const char *arch_vma_name(struct vm_area_struct *vma)
 
 void __init signals_init(void)
 {
+	pr_notice("zzytest, signals_init begin, kernel/signal.c\n");
 	sigqueue_cachep = KMEM_CACHE(sigqueue, SLAB_PANIC);
 }
 

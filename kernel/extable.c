@@ -41,6 +41,7 @@ u32 __initdata main_extable_sort_needed = 1;
 /* Sort the kernel's built-in exception table */
 void __init sort_main_extable(void)
 {
+	pr_notice("zzytest, sort_main_extable begin, kernel/extable.c\n");
 	if (main_extable_sort_needed) {
 		pr_notice("Sorting __ex_table...\n");
 		sort_extable(__start___ex_table, __stop___ex_table);

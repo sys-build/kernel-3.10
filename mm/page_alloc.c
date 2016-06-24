@@ -4142,6 +4142,7 @@ static int default_zonelist_order(void)
 
 static void set_zonelist_order(void)
 {
+	pr_notice("zzytest, set_zonelist_order begin, mm/page_alloc.c\n");
 	if (user_zonelist_order == ZONELIST_ORDER_DEFAULT)
 		current_zonelist_order = default_zonelist_order();
 	else
@@ -4370,9 +4371,11 @@ static int __build_all_zonelists(void *data)
  */
 void __ref build_all_zonelists(pg_data_t *pgdat, struct zone *zone)
 {
+	pr_notice("zzytest, build_all_zonelists begin, mm/page_alloc.c\n");
 	set_zonelist_order();
 
 	if (system_state == SYSTEM_BOOTING) {
+		pr_notice("zzytest, system_state == SYSTEM_BOOTING\n");
 		__build_all_zonelists(NULL);
 		mminit_verify_zonelist();
 		cpuset_init_current_mems_allowed();
@@ -4782,6 +4785,7 @@ void __init setup_per_cpu_pageset(void)
 {
 	struct zone *zone;
 
+	pr_notice("zzytest, setup_per_cpu_pageset begin, mm/page_alloc.c\n");
 	for_each_populated_zone(zone)
 		setup_zone_pageset(zone);
 }
@@ -6061,6 +6065,7 @@ static int page_alloc_cpu_notify(struct notifier_block *self,
 
 void __init page_alloc_init(void)
 {
+	pr_notice("zzytest, page_alloc_init begin, mm/page_alloc.c\n");
 	hotcpu_notifier(page_alloc_cpu_notify, 0);
 }
 

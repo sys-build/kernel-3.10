@@ -147,6 +147,7 @@ void __init arm64_memblock_init(void)
 {
 	u64 *reserve_map, base, size;
 
+	pr_notice("zzytest, arm64_memblock_init begin, arch/arm64/mm/init.c\n");
 	/* Register the kernel text, kernel data and initrd with memblock */
 	memblock_reserve(__pa(_text), _end - _text);
 #ifdef CONFIG_BLK_DEV_INITRD
@@ -312,6 +313,7 @@ void __init mem_init(void)
 	unsigned long reserved_pages, free_pages;
 	struct memblock_region *reg;
 
+	pr_notice("zzytest, mem_init begin, arch/arm64/mm/init.c\n");
 	arm64_swiotlb_init();
 
 	max_mapnr   = pfn_to_page(max_pfn + PHYS_PFN_OFFSET) - mem_map;

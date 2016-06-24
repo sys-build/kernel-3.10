@@ -459,7 +459,9 @@ struct mm_struct {
 
 static inline void mm_init_cpumask(struct mm_struct *mm)
 {
+	pr_notice("zzytest, mm_init_cpumask, before CONFIG_CPUMASK_OFFSTACK, include/linux/mm_types.h\n");
 #ifdef CONFIG_CPUMASK_OFFSTACK
+	pr_notice("zzytest, mm_init_cpumask, include/linux/mm_types.h\n");
 	mm->cpu_vm_mask_var = &mm->cpumask_allocation;
 #endif
 }

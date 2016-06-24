@@ -187,17 +187,13 @@ static int __init devinfo_parse_dt(unsigned long node, const char *uname, int de
     int i;
     u32 size = 0;
 
-	pr_err("zzytest, devinfo_parse_dt begin\n");
     if (depth != 1 || (strcmp(uname, "chosen") != 0 && strcmp(uname, "chosen@0") != 0))
         return 0;
 
     tags = (struct devinfo_tag *) of_get_flat_dt_prop(node, "atag,devinfo", NULL);
-	pr_err("zzytest, tags=0x%p\n", tags);
     if (tags) {
         size = DEVINFO_MAX_SIZE; // tags->data_size;
-	pr_err("zzytest, tags->data_size=%d\n", tags->data_size);
         for (i = 0; i < size; i++) {
-		pr_err("zzytest, tags->data[%d]=%d\n", i, tags->data[i]);
             g_devinfo_data[i] = zzy_data[i]; // zzytest workaround
         }
         /* print chip id for debugging purpose */

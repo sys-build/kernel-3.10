@@ -355,6 +355,7 @@ void __init tick_nohz_init(void)
 {
 	int cpu;
 
+	pr_notice("zzyteset, tick_nohz_init begin, kernel/time/tick-sched.c\n");
 	if (!have_nohz_full_mask) {
 		if (tick_nohz_init_all() < 0)
 			return;

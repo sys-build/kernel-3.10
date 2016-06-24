@@ -2865,6 +2865,7 @@ static inline void mm_update_next_owner(struct mm_struct *mm)
 
 static inline void mm_init_owner(struct mm_struct *mm, struct task_struct *p)
 {
+	pr_notice("zzytest, mm_init_owner begin, empty, include/linux/sched.h\n");
 }
 #endif /* CONFIG_MM_OWNER */
 

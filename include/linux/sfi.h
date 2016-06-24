@@ -190,6 +190,7 @@ static inline void sfi_init(void)
 
 static inline void sfi_init_late(void)
 {
+	pr_notice("zzytest, sfi_init_late begin, empty, include/linux_sfi.h\n");
 }
 
 #define sfi_disabled	0

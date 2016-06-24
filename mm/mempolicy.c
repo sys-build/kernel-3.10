@@ -2571,6 +2571,7 @@ void __init numa_policy_init(void)
 	unsigned long largest = 0;
 	int nid, prefer = 0;
 
+	pr_notice("zzytest, numa_policy_init begin, mm/mempolicy.c\n");
 	policy_cache = kmem_cache_create("numa_policy",
 					 sizeof(struct mempolicy),
 					 0, SLAB_PANIC, NULL);

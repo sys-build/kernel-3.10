@@ -1205,6 +1205,7 @@ void __init vmalloc_init(void)
 	struct vm_struct *tmp;
 	int i;
 
+	pr_notice("zzytest, vmalloc_init begin, mm/vmalloc.c\n");
 	for_each_possible_cpu(i) {
 		struct vmap_block_queue *vbq;
 		struct vfree_deferred *p;

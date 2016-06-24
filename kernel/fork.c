@@ -177,6 +177,7 @@ static void free_thread_info(struct thread_info *ti)
 
 void thread_info_cache_init(void)
 {
+	pr_notice("zzytest, thread_info_cache_init begin, kernel/fork.c\n");
 	thread_info_cache = kmem_cache_create("thread_info", THREAD_SIZE,
 					      THREAD_SIZE, 0, NULL);
 	BUG_ON(thread_info_cache == NULL);
@@ -271,6 +272,7 @@ void __init __weak arch_task_cache_init(void) { }
 
 void __init fork_init(unsigned long mempages)
 {
+	pr_notice("zzytest, fork_init begin, kernel/fork.c\n");
 #ifndef CONFIG_ARCH_TASK_STRUCT_ALLOCATOR
 #ifndef ARCH_MIN_TASKALIGN
 #define ARCH_MIN_TASKALIGN	L1_CACHE_BYTES
@@ -1180,6 +1182,7 @@ static void rt_mutex_init_task(struct task_struct *p)
 #ifdef CONFIG_MM_OWNER
 void mm_init_owner(struct mm_struct *mm, struct task_struct *p)
 {
+	pr_notice("zzytest, mm_init_owner begin, kernel/fork.c\n");
 	mm->owner = p;
 }
 #endif /* CONFIG_MM_OWNER */
@@ -1851,6 +1854,7 @@ static void sighand_ctor(void *data)
 
 void __init proc_caches_init(void)
 {
+	pr_notice("zzytest, proc_caches_init begin, kernel/fork.c\n");
 	sighand_cachep = kmem_cache_create("sighand_cache",
 			sizeof(struct sighand_struct), 0,
 			SLAB_HWCACHE_ALIGN|SLAB_PANIC|SLAB_DESTROY_BY_RCU|

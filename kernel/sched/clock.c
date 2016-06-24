@@ -107,6 +107,7 @@ void sched_clock_init(void)
 	u64 ktime_now = ktime_to_ns(ktime_get());
 	int cpu;
 
+	pr_notice("zzytest, sched_clock_init begin, line:%d, kernel/sched/clock.c\n", __LINE__);
 	for_each_possible_cpu(cpu) {
 		struct sched_clock_data *scd = cpu_sdc(cpu);
 
@@ -349,6 +350,7 @@ u64 local_clock(void)
 
 void sched_clock_init(void)
 {
+	pr_notice("zzytest, sched_clock_init begin, line:%d, kernel/sched/clock.c\n", __LINE__);
 	sched_clock_running = 1;
 }
 

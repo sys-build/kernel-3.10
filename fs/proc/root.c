@@ -159,6 +159,7 @@ void __init proc_root_init(void)
 {
 	int err;
 
+	pr_notice("zzytest, proc_root_init begin, fs/proc/root.c\n");
 	proc_init_inodecache();
 	err = register_filesystem(&proc_fs_type);
 	if (err)

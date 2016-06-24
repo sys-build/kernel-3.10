@@ -248,6 +248,7 @@ mpol_shared_policy_lookup(struct shared_policy *sp, unsigned long idx)
 
 static inline void numa_policy_init(void)
 {
+	pr_notice("zzytest, numa_policy_init begin, empty, include/linux/mempolicy.h\n");
 }
 
 static inline void numa_default_policy(void)

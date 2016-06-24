@@ -1755,6 +1755,7 @@ void __init kmemleak_init(void)
 	int i;
 	unsigned long flags;
 
+	pr_notice("zzytest, kmemleak_init begin, mm/kmemleak.c\n");
 #ifdef CONFIG_DEBUG_KMEMLEAK_DEFAULT_OFF
 	if (!kmemleak_skip_disable) {
 		atomic_set(&kmemleak_early_log, 0);

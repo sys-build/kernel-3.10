@@ -87,6 +87,7 @@ void __init cpu_read_bootcpu_ops(void)
 	struct device_node *dn = NULL;
 	u64 mpidr = cpu_logical_map(0);
 
+	pr_notice("zzytest, cpu_read_bootcpu_ops begin, arch/arm64/kernel/cpu_ops.c\n");
 	while ((dn = of_find_node_by_type(dn, "cpu"))) {
 		u64 hwid;
 		const __be32 *prop;

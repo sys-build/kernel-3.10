@@ -831,6 +831,7 @@ void __weak kgdb_arch_late(void)
 
 void __init dbg_late_init(void)
 {
+	pr_notice("zzytest, dbg_late_init begin, kernel/debug/debug_core.c\n");
 	dbg_is_early = false;
 	if (kgdb_io_module_registered)
 		kgdb_arch_late();

@@ -999,6 +999,7 @@ void __init debug_objects_early_init(void)
 {
 	int i;
 
+	pr_notice("zzytest, debug_objects_early_init begin, lib/debugobjects.c\n");
 	for (i = 0; i < ODEBUG_HASH_SIZE; i++)
 		raw_spin_lock_init(&obj_hash[i].lock);
 
@@ -1071,6 +1072,7 @@ free:
  */
 void __init debug_objects_mem_init(void)
 {
+	pr_notice("zzytest, debug_objects_mem_init begin, lib/debugobjects.c\n");
 	if (!debug_objects_enabled)
 		return;
 

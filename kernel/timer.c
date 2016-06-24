@@ -1659,6 +1659,7 @@ void __init init_timers(void)
 {
 	int err;
 
+	pr_notice("zzytest, init_timers begin, kernel/timer.c\n");
 	/* ensure there are enough low bits for flags in timer->base pointer */
 	BUILD_BUG_ON(__alignof__(struct tvec_base) & TIMER_FLAG_MASK);
 

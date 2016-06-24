@@ -1673,6 +1673,7 @@ static struct notifier_block __cpuinitdata ratelimit_nb = {
  */
 void __init page_writeback_init(void)
 {
+	pr_notice("zzytest, page_writeback_init begin, mm/page-writeback.c\n");
 	writeback_set_ratelimit();
 	register_cpu_notifier(&ratelimit_nb);
 

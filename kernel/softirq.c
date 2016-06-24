@@ -752,6 +752,7 @@ void __init softirq_init(void)
 {
 	int cpu;
 
+	pr_notice("zzytest, softirq_init begin, kernel/softirq.c\n");
 	for_each_possible_cpu(cpu) {
 		int i;
 

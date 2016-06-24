@@ -1114,6 +1114,7 @@ void locking_selftest(void)
 	/*
 	 * Got a locking failure before the selftest ran?
 	 */
+	pr_notice("zzytest, locking_selftest begin, lib/locking-selftest.c\n");
 	if (!debug_locks) {
 		printk("----------------------------------\n");
 		printk("| Locking API testsuite disabled |\n");

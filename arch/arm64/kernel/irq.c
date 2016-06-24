@@ -147,6 +147,7 @@ void __init set_handle_irq(void (*handle_irq)(struct pt_regs *))
 
 void __init init_IRQ(void)
 {
+	pr_notice("zzytest, init_IRQ begin, arch/arm64/kernel/irq.c\n");
 	irqchip_init();
 	if (!handle_arch_irq)
 		panic("No interrupt controller found.");

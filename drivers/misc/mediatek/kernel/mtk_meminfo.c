@@ -69,7 +69,6 @@ static int __init init_get_max_DRAM_size(void)
 			pr_alert("init_get_max_DRAM_size done. phone_dram_sz: 0x%llx, kernel_mem_sz: 0x%llx\n",
 				 (unsigned long long)phone_dram_sz,
 				 (unsigned long long)kernel_mem_sz);
-			dump_stack();
 		} else {
 			pr_err("init_get_max_DRAM_size fail\n");
 			BUG();
