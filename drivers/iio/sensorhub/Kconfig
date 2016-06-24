@@ -1,0 +1,7 @@
+#
+# IIO Sensor Hub drivers
+#
+menu "Sensor Hubs"
+source "drivers/iio/sensorhub/sentral/Kconfig"
+
+endmenu

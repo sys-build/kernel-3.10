@@ -1,0 +1,90 @@
+
+/dts-v1/;
+
+/include/ "mt6753.dtsi"
+/include/ "htc_features.dtsi"
+/include/ "mt6753-touch-a51cml.dtsi"
+
+/ {
+	htc_board_info {
+		        htc_pid,htc_sku1 = <0x0 0x0>;
+	};
+
+        htc_vdev{
+                htc_aud,rec-spk-sel-gpio = <21>;
+        };
+
+memory@00000000 {
+		device_type = "memory";
+		reg = <0 0x40000000 0 0x3F000000>;
+	};
+
+	bus {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0xffffffff>;
+
+		MTKFB@5e200000 {
+			compatible = "mediatek,MTKFB";
+			reg = <0x7F000000 0x1000000>;
+		};
+
+                I2C1@0x11008000 {
+                        status = "ok";
+
+                        nxp_tfa9895_amp@35 {
+                                compatible = "nxp,tfa9895-amp";
+                                reg = <0x35>;
+                        };
+
+                        nxp_tfa9895l_amp@34 {
+                                compatible = "nxp,tfa9895l-amp";
+                                reg = <0x34>;
+                        };
+                        tpa6130_hs_amp@60 {
+                            compatible = "tpa,tpa6130-hs-amp";
+                            reg = <0x60>;
+                        };
+                };
+		I2C2@0x11009000 {
+			sentral@28 {
+				compatible = "sentral";
+				reg = <0x28>;
+				pni,host_int_gpio = <80>;
+				pni,firmware = "sentral.fw";
+				//pni,firmware = "sentral-iio/sentral.fw";
+
+				mcu,als_level_count = <10>;
+				mcu,als_levels = <2 5 9 43 86 579 868 1564 2143 65535>;
+				mcu,als_goldl = <0xF7>;
+				mcu,als_goldh = <0x01>;
+				mcu,als_polling = <0>;
+				mcu,als_lux_ratio_n = <2>;		/* Numerator */
+				mcu,als_lux_ratio_d = <10>; 	/* Denominator */
+				mcu,ps_thd_add = <0x28>;
+				mcu,ps_thd_fixed = <0x15>;
+				vibrate_ms = <60>;
+			};
+		};
+						I2C3@0x1100F000 {
+			nxp_pn544_nfc@2B {
+			compatible = "nxp,pn544-nfc";
+			reg = <0x2B>;
+			nxp,irq-gpio = <2>;
+			nxp,ven-gpio = <123>;
+			nxp,fwdl-gpio = <99>;
+			nxp,ven_isinvert = <1>;
+			nxp,isalive = <1>;
+		};
+	};
+	};
+
+	hall_ak8789 {
+		compatible = "hall_sensor,ak8789";
+		hall,att_used = <2>;
+		hall,att_gpio = <1>;
+		hall,att_gpio_s = <3>;
+	};
+
+};

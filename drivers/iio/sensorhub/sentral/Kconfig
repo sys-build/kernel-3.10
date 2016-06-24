@@ -1,0 +1,18 @@
+#
+# SENtral Sensor Hub driver
+#
+
+config SENTRAL_IIO
+	tristate "SENtral Sensor Hub (IIO)"
+	depends on I2C && SYSFS && IIO && IIO_KFIFO_BUF
+	default m
+	help
+	  This driver supports the SENtral Sensor Hub using IIO
+	  This driver can be built as a module.
+
+config HUB_SENTRAL_MFG
+	tristate "SENtral Sensor Hub MFG FLAG FOR TURN OFF AUTOK"
+	depends on I2C
+	default n
+	help
+	  sentral sensor hub MFG flag

@@ -1,0 +1,86 @@
+
+/dts-v1/;
+
+/include/ "mt6753.dtsi"
+/include/ "htc_features.dtsi"
+/include/ "mt6753-touch-a50cml.dtsi"
+
+/ {
+	htc_board_info {
+		        htc_pid,htc_sku1 = <0x0 0x3>;
+	};
+
+        htc_vdev{
+                htc_aud,rec-spk-sel-gpio = <129>;
+        };
+
+  	memory@00000000 {
+		device_type = "memory";
+		reg = <0 0x40000000 0 0x3F000000>;
+	};
+
+	bus {
+		compatible = "simple-bus";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges = <0 0 0 0xffffffff>;
+
+		MTKFB@5e200000 {
+			compatible = "mediatek,MTKFB";
+			reg = <0x7F000000 0x1000000>;
+		};
+
+                I2C1@0x11008000 {
+                        status = "ok";
+
+                        nxp_tfa9895_amp@35 {
+                                compatible = "nxp,tfa9895-amp";
+                                reg = <0x35>;
+                        };
+
+                        nxp_tfa9895l_amp@34 {
+                                compatible = "nxp,tfa9895l-amp";
+                                reg = <0x34>;
+                        };
+                };
+		I2C2@0x11009000 {
+			compass_bmc156@12 {
+				compatible = "htc_compass,bma156_bosch";
+				reg = <0x12>;
+				compass_bmc156,place        = <4>;
+			};
+			g_sensor_bma253@10 {
+				compatible = "htc_g_sensor,bma253_bosch";
+				reg = <0x10>;
+				g_sensor_bma253,intr        = <0>;
+				g_sensor_bma253,chip_layout = <4>;
+				g_sensor_bma253,axis_map_x  = <0>;
+				g_sensor_bma253,axis_map_y  = <1>;
+				g_sensor_bma253,axis_map_z  = <2>;
+				g_sensor_bma253,negate_x    = <1>;
+				g_sensor_bma253,negate_y    = <0>;
+				g_sensor_bma253,negate_z    = <1>;
+			};
+			cm36686@60 {
+			compatible = "CM36686";
+			reg = <0x60>;
+			cm36686,irq-gpio = <65>;
+			cm36686,engineer-id = <1>;
+			cm36686,levels = <4 11 18 86 172 1155 1733 3121 4277 65535>;
+			cm36686,levels_2 = <7 19 30 146 292 1955 2933 5281 7237 65535>;
+			cm36686,golden_adc = <0x0b69>;
+			cm36686,golden_adc_2 = <0x06a6 >;
+			cm36686,cm36686_slave_address = <0x60>;
+			cm36686,ps1_thd_set = <0x15>;
+			cm36686,ps1_thd_no_cal = <0x5f>;
+			cm36686,dynamical_threshold = <1>;
+			cm36686,dark_level = <3>;
+			cm36686,ps_duty = <0>;
+			cm36686,ps_pers = <1>;
+			cm36686,ps_it = <7>;
+			cm36686,ps_hd = <0>;
+			cm36686,ps_led_current = <2>;
+			};
+		};
+	};
+};
